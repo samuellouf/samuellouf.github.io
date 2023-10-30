@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./search.css">
+  </head>
+  <body>
+    <input type="text" id="searchInput" onkeyup="refreshSearchResults()" placeholder="Search for pages..">
+
+    <ul id="searchItems">
+      <li>
+        <div>
+          <h1>Title</h1>
+          <h2>Short description</h2>
+          <br>
+          <p>Description</p>
+          <br>
+          <div class="links">
+            <a href=""><button>Open page</button></a>
+            <a href=""><button>Open webapp</button></a>
+            <a href=""><button>Download app</button></a>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <script src="./search.js"></script>
+  </body>
+</html>
