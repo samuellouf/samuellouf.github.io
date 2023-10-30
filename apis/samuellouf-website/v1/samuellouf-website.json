@@ -1,0 +1,23 @@
+{
+  "pages": [
+    {
+      "name": "TurboWarp Extension Creator",
+      "url": "https://samuellouf.github.io/TurboWarp-Extension-Creator/",
+      "short_description": "Easily create TurboWarp extensions.",
+      "description": "Easily create TurboWarp extensions using TurbWarp Extension Creator. The only things that you will have to code are the blocks' opcode functions. Use it, it's free!",
+      "isDownloadableApp": true,
+      "isWebApp": true,
+      "downloadLink": "https://samuellouf.github.io/TurboWarp-Extension-Creator/?download",
+      "webAppLink": "https://samuellouf.github.io/TurboWarp-Extension-Creator/app"
+    },
+    {
+      "name": "api",
+      "url": "https://samuellouf.github.io/api/",
+      "short_description": "My own little APIs.",
+      "description": "",
+      "isDownloadableApp": false,
+      "isWebApp": false
+    }
+  ],
+  "api_version": 1
+}
