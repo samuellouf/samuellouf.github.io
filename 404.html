@@ -98,7 +98,7 @@
     <br>
     <p align="center"><a href="https://samuellouf.github.io/"><button><text>Go back to Homepage</text></button></a></p>
     <script>
-      let query = window.location.href.split('/')[(window.location.href.split('/').length - (window.location.href.endsWith('/') ? 2 : 1))].replaceAll('-', ' ').replaceAll('_', ' ');
+      let query = decodeURIComponent(window.location.href.split('/')[(window.location.href.split('/').length - (window.location.href.endsWith('/') ? 2 : 1))].replaceAll('-', ' ').replaceAll('_', ' '));
       document.querySelector('.search a').href = 'https://samuellouf.github.io/search?q=' + query;
       document.querySelector('.search .search_query').innerText = query;
     </script>
