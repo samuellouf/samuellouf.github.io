@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TWConnect - Sign up</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: aqua;
+    }
+
+    input.password{
+      -webkit-text-security: disc !important;
+    }
+
+    #info{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 10px;
+      border: 5px solid rgb(88, 88, 255);
+    }
+
+    #info .content{
+      margin: 50px;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const queryString = window.location.search;
+    const params = new URLSearchParams(queryString);
+  </script>
+  <div id="info">
+    <div class="content">
+      <h1>Hi <script>document.write(params.get('first_name'));</script> <script>document.write(params.get('last_name'));</script> (<script>document.write(params.get('username'));</script>)!</h1>
+      <p>Your e-mail is "<b><script>document.write(params.get('email'));</script></b>" .</p>
+      <p>Here's your password : <span class="password"></span><script>var password = document.createElement('input'); password.value = params.get('password'); password.type = 'text'; password.classList.add('password'); document.querySelector('span.password').appendChild(password);</script><button title="Show/Hide password" onclick="document.querySelector('span.password input').classList.toggle('password');">👁️</button></p>
+      <p>You are in <b><script>document.write(params.get('country'));</script></b>.</p>
+      <p>You were born the <b><script>document.write(params.get('dob').replaceAll('-', '/'));</script></b>.</p>
+    </div>
+  </div>
+</body>
+</html>
