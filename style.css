@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'Calibri';
+  src: url('./calibri.ttf');
+}
+
+body{
+  font-family: 'Calibri';
+  color: white;
+  background-color: rgb(0, 0, 150);
+}
+
+#main{
+  display: flex;
+}
+
+#main #me div{
+  background-color: rgb(0, 0, 100);
+  border-radius: 25px;
+  padding: 25px;
+  margin: 10px;
+  min-width: 300px;
+}
+
+#main #projects{
+  width: -webkit-fill-available;
+}
+
+#main #me #presentation table tr td:first-child{
+  background-color: rgb(0, 0, 70);
+  border-radius: 20px;
+  padding: 15px;
+}
+
+.title{
+  font-size: 72px;
+}

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -93,8 +94,14 @@
     <br>
     <h2 align="center">Page not found</h2>
     <br>
-    <!-- Search Coming Soon-->
+    <p align="center" class="search"><a href="."><button><text>Search "<span class="search_query"></span>"</text></button></a></p>
+    <br>
     <br>
     <p align="center"><a href="https://samuellouf.github.io/"><button><text>Go back to Homepage</text></button></a></p>
+    <script>
+      let query = decodeURIComponent(window.location.href.split('/')[(window.location.href.split('/').length - (window.location.href.endsWith('/') ? 2 : 1))].replaceAll('-', ' ').replaceAll('_', ' '));
+      document.querySelector('.search a').href = 'https://samuellouf.github.io/?q=' + query;
+      document.querySelector('.search .search_query').innerText = query;
+    </script>
   </body>
 </html>

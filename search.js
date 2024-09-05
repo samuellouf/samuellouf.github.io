@@ -9,9 +9,19 @@ function if_then_else_return(condition, then_return, else_return){
 function getTags(tags){
   var taglist = '';
   for (var tag in tags){
-    taglist = taglist + '[' + tags[tag] + '] ';
+    taglist = taglist + '<a href="javascript: filterSearch(\'' + tags[tag] + '\');">[' + tags[tag] + ']</a> ';
   }
   return taglist;
+}
+
+function filterSearch(filter){
+  if (!document.getElementById('searchInput').value.includes(filter)){
+    document.getElementById('searchInput').value += '[' + filter + '] ';
+  } else {
+    document.getElementById('searchInput').value = document.getElementById('searchInput').value.replaceAll('[' + filter + ']', '');
+  }
+  document.getElementById('searchInput').value = document.getElementById('searchInput').value.replaceAll('  ', ' ');
+  refreshSearchResults();
 }
 
 function setParam(key, value) {
@@ -22,12 +32,10 @@ function setParam(key, value) {
 
 async function loadPages(){
   try {
-    var api = await fetch('https://samuellouf.github.io/api/samuellouf-website/v1/samuellouf-website.json').then(r => r.text());
+    var api = await fetch('https://samuellouf.github.io/api/samuellouf-website/v1/samuellouf-website.json').then(r => r.json());
   } catch (e) {
-    var api = await fetch('https://raw.githubusercontent.com/samuellouf/api/main/samuellouf-website/v1/samuellouf-website.json').then(r => r.text());
+    var api = await fetch('https://raw.githubusercontent.com/samuellouf/api/main/samuellouf-website/v1/samuellouf-website.json').then(r => r.json());
   }
-
-  api = JSON.parse(api);
 
   var i = 0;
 
@@ -51,16 +59,14 @@ async function loadPages(){
   }
 }
 
-function refreshSearchResults() {
+function refreshSearchResults(changename) {
   // Declare variables
   var input, filter, ul, li, a, i, txtValue;
   input = document.getElementById('searchInput');
   filter = input.value.toUpperCase();
   ul = document.getElementById("searchItems");
   li = ul.getElementsByTagName('li');
-
-  document.title = 'Search' + if_then_else_return(input.value == '', '', ' - ') + input.value;
-
+  
   // Loop through all list items, and hide those who don't match the search query
   for (i = 0; i < li.length; i++) {
     a = li[i].getElementsByTagName("div")[0];
@@ -75,14 +81,15 @@ function refreshSearchResults() {
 
 async function main(){
   const url = new URL(window.location.href);
-    
-  if ((url.searchParams.get('q') != '') && (url.searchParams.get('q') != null)){
-    document.getElementById('searchInput').value = url.searchParams.get('q');
+  var changename = document.currentScript.getAttribute('changename');
+  if (changename != 'false'){
+    if ((url.searchParams.get('q') != '') && (url.searchParams.get('q') != null)){
+      document.getElementById('searchInput').value = url.searchParams.get('q');
+    }
   }
-
   await loadPages();
 
-  refreshSearchResults();
+  refreshSearchResults(changename);
 }
 
 window.onload = main();

@@ -3,8 +3,61 @@
   <head>
     <title>Home - samuellouf</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="./style.css"/>
+    <link rel="stylesheet" href="./search.css"/>
   </head>
   <body>
-    
+    <div id="main">
+      <div id="me">
+        <div id="presentation">
+          <h1 class="title">Hi!</h1>
+          <p>I'm SamuelLouf.</p>
+          <div>
+            <table>
+              <tr>
+                <td>Pronounce</td>
+                <td>SamuelLouf · \sa.mɥɛlluf\</td>
+              </tr>
+              <tr>
+                <td>Pronouns</td>
+                <td>he/him/his ♂️</td>
+              </tr>
+              <tr>
+                <td>Location</td>
+                <td>𝒫𝒶𝓇𝒾𝓈, France 🇫🇷</td>
+              </tr>
+              <tr>
+                <td>Time Zone</td>
+                <td>GTM + 2</td>
+              </tr>
+              <tr>
+                <td>Zociac</td>
+                <td>Cancer ♋</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div id="intrests">
+          <h1>Intrests and Hobbies</h1>
+          <ul>
+            <li>Web Developpement</li>
+            <li>App Developpement</li>
+            <li>Music</li>
+          </ul>
+        </div>
+        <div id="socials">
+          <h1>My socials</h1>
+        </div>
+      </div>
+      <div id="projects">
+        <br><br>
+        <h1>Projects</h1>
+        <input type="text" id="searchInput" onkeyup="refreshSearchResults();" placeholder="Search for pages..">
+
+        <ul id="searchItems">
+        </ul>
+      </div>
+    </div>
+    <script src="./search.js"></script>
   </body>
 </html>
