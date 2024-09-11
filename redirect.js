@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async function (event) {
     }
 
     const getNewURL = (origin, redirection) => {
-      return (redirection + window.location.href.replace(origin, '') + (window.location.href.replace(origin, '')[1] != '/' ? '/' : '')).replaceAll('//', '');
+      return (redirection + window.location.href.replace(origin, '') + (window.location.href.replace(origin, '')[1] != '/' ? '/' : '')).replaceAll('//', '/');
     }
 
     for (var url of redirections){
