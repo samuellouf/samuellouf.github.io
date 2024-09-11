@@ -11,7 +11,7 @@ function tryto(func){
 
 document.addEventListener('DOMContentLoaded', async function (event) {
   var func = async () => {
-    var redirections = (await fetch('https://samuellouf.github.io/api/samuellouf-website/v1/redirections.json')).then((r) => r.json());
+    var redirections = await fetch('https://samuellouf.github.io/api/samuellouf-website/v1/redirections.json').then((r) => r.json());
     const isURLCompatible = (origin) => {
       return window.location.href.startsWith(origin);
     }
